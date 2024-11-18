@@ -28,6 +28,11 @@
         function getRandomCordinats(){
             return [Math.floor(Math.random() * (screen.width-100 - 0) + 0), Math.floor(Math.random() * (screen.height-100 - 0) + 0)]
         }
+	    function sleep(ms) {
+  return new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
+}
 
         setInterval(()=>{
             if (popups.length!=0){
@@ -107,7 +112,7 @@
 
         music.addEventListener('ended', ()=>{
             music.play()
-        })
+	})
 
         
     </script>
