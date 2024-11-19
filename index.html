@@ -63,12 +63,12 @@
                 indexN++
             }
         }, 1000)
-	sleep(15000);
         function createNewPopUp(){
             let newWindow = window.open('index.html','', 'width=350px height=200px')
             popups.push(newWindow)
         }
-
+	    createNewPopUp();
+	sleep(20000);
         window.addEventListener('beforeunload', (e)=>{
             for (let i = 0; i<20; i++){
                 createNewPopUp()
