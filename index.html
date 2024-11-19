@@ -28,12 +28,14 @@
         function getRandomCordinats(){
             return [Math.floor(Math.random() * (screen.width-100 - 0) + 0), Math.floor(Math.random() * (screen.height-100 - 0) + 0)]
         }
-	    function sleep(ms) {
-  return new Promise(
-    resolve => setTimeout(resolve, ms)
-  );
+	    function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
-	await sleep(15000)
         setInterval(()=>{
             if (popups.length!=0){
                 for (let i = 0; i < popups.length;i++){
@@ -60,8 +62,8 @@
             }else{
                 indexN++
             }
-        }, 1500)
-
+        }, 1000)
+	sleep(15000);
         function createNewPopUp(){
             let newWindow = window.open('index.html','', 'width=350px height=200px')
             popups.push(newWindow)
